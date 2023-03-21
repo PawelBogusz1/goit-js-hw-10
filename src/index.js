@@ -33,7 +33,9 @@ function onFormInput() {
           createCountryInfo(countries)
         );
       } else if (countries.length >= 10) {
-        alertTooManyMatches();
+              return Notify.info(
+          'Too many matches found. Please enter a more specific name.'
+        );
       } else {
         countryList.insertAdjacentHTML(
           'beforeend',
