@@ -42,9 +42,11 @@ function onFormInput() {
           createCountryList(countries)
         );
       }
-    })
-    .catch(alertWrongName);
-}
+      })
+      .catch(error => {
+        Notiflix.Notify.failure('Oops, there is no country with that name');
+        clearInput();
+      })
 
 function createCountryList(countries) {
   const result = countries
@@ -66,7 +68,6 @@ function createCountryInfo(countries) {
           <p><b>Languages: </b>${Object.values(languages).join(', ')}</p>`;
     })
     .join('');
-  return result;
-}
 
-
+    return result;
+  }}
